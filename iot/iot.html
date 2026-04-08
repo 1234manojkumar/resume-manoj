@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Campus</title>
+<link rel="stylesheet" href="iot.css">
+</head>
+<body>
+
+<header>
+    <h1>🏫 Smart Campus Dashboard</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🌡️ Temperature</h2>
+        <p id="temp">-- °C</p>
+    </div>
+
+    <div class="card">
+        <h2>💡 Smart Light</h2>
+        <button onclick="toggleLight()">Toggle</button>
+        <p id="lightStatus">OFF</p>
+    </div>
+
+    <div class="card">
+        <h2>🧭 Mode</h2>
+        <button onclick="toggleMode()">Change Mode</button>
+        <p id="mode">--</p>
+    </div>
+
+    <div class="card">
+        <h2>🚗 Parking Slots</h2>
+        <p id="parking">--</p>
+    </div>
+
+</div>
+
+<script src="iot.js"></script>
+</body>
+</html>
