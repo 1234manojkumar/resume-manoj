@@ -1,97 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manojkumar M | AI Student Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@500;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student CGPA Calculator</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
-  <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#top">MM</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<div class="container">
+    <div class="header">
+        <h2>Student CGPA Calculator</h2>
+        <button class="dark-toggle" onclick="toggleDark()">Dark</button>
+    </div>
 
-  <main id="top">
-    <section class="hero">
-      <p class="eyebrow">Artificial Intelligence and Data Science Student</p>
-      <h1>Building practical AI solutions with clean execution.</h1>
-      <p class="lead">
-        I am Manojkumar M from Salem, focused on turning academic ideas into useful products through
-        data, engineering discipline, and strong team collaboration.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="#projects">View Work</a>
-        <a class="btn btn-ghost" href="#contact">Hire Me</a>
-        <a class="btn btn-ghost" href="resume.pdf" download>Download Resume</a>
-      </div>
-      <ul class="quick-facts">
-        <li><span>Location</span><strong>Salem, Tamil Nadu</strong></li>
-        <li><span>Specialization</span><strong>AI + Data Science</strong></li>
-        <li><span>Availability</span><strong>Open to internships</strong></li>
-      </ul>
-    </section>
+    <div class="tab-bar">
+        <button class="tab active" onclick="switchTab('calculator')">Calculator</button>
+        <button class="tab" onclick="switchTab('history')">History</button>
+    </div>
 
-    <section id="about" class="panel reveal">
-      <h2>About</h2>
-      <p>
-        I enjoy solving real problems with machine learning, analytics, and software fundamentals. My work style is
-        execution-first: define the objective clearly, build fast prototypes, validate with data, and improve quality.
-      </p>
-    </section>
+    <div id="calculator" class="tab-content active">
 
-    <section id="projects" class="panel reveal">
-      <h2>Featured Projects</h2>
-      <div class="project-grid">
-        <article class="project-card">
-          <h3>Student Performance Predictor</h3>
-          <p>
-            Built a model to estimate student outcomes from study and attendance patterns, with a dashboard for quick insights.
-          </p>
-          <p class="stack">Python, scikit-learn, Pandas</p>
-        </article>
-        <article class="project-card">
-          <h3>Campus Event Analytics</h3>
-          <p>
-            Collected and visualized event participation data to improve planning and engagement for student activities.
-          </p>
-          <p class="stack">SQL, Power BI, Excel</p>
-        </article>
-        <article class="project-card">
-          <h3>Resume Screening Tool</h3>
-          <p>
-            Developed a rule-based and NLP-assisted ranking workflow for matching candidate profiles with role requirements.
-          </p>
-          <p class="stack">NLP, JavaScript, Data Processing</p>
-        </article>
-      </div>
-    </section>
+        <div class="section-title">Student Details</div>
+        <div class="student-info">
+            <div class="info-grid">
+                <div class="field">
+                    <label>Student Name</label>
+                    <input type="text" id="stu_name" placeholder="Enter full name">
+                </div>
+                <div class="field">
+                    <label>Register Number</label>
+                    <input type="text" id="stu_reg" placeholder="Enter register number">
+                </div>
+                <div class="field">
+                    <label>College Name</label>
+                    <input type="text" id="stu_college" placeholder="Enter college name">
+                </div>
+                <div class="field">
+                    <label>Department / Course</label>
+                    <input type="text" id="stu_dept" placeholder="B.E. Computer Science and Engineering">
+                </div>
+                <div class="field">
+                    <label>Academic Year</label>
+                    <select id="stu_ayear">
+                        <option value="">Select Year</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Semester</label>
+                    <select id="stu_sem">
+                        <option value="">Select Semester</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 
-    <section id="contact" class="panel contact reveal">
-      <h2>Contact</h2>
-      <p>Let us connect for internships, freelance collaboration, or project discussions.</p>
-      <div class="contact-list">
-        <a href="tel:+916385320019">6385320019</a>
-        <a href="mailto:manojkumar.rpsit1234@gmail.com">manojkumar.rpsit1234@gmail.com</a>
-      </div>
-    </section>
-  </main>
+        <div class="section-title">Subject Details</div>
+        <div class="table-wrapper">
+            <table id="subject-table">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Paper Code</th>
+                        <th>Subject Name</th>
+                        <th>Credits</th>
+                        <th>Grade Point</th>
+                        <th>Grade</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="subject-body">
+                </tbody>
+            </table>
+        </div>
+        <button class="calc-btn add-btn" onclick="addSubject()">+ Add Subject</button>
 
-  <footer>
-    <p id="footer-text"></p>
-  </footer>
+        <div class="result-section" id="result"></div>
 
-  <script src="script.js"></script>
+        <div class="btn-row">
+            <button class="calc-btn" onclick="calculateSGPA()">Calculate SGPA</button>
+            <button class="calc-btn save-btn" onclick="saveSemester()">Save Semester</button>
+        </div>
+
+        <div class="section-title">Saved Semesters</div>
+        <div id="saved-sems"></div>
+
+        <div class="btn-row">
+            <button class="calc-btn" onclick="calculateCGPA()">Calculate Final CGPA</button>
+            <button class="calc-btn print-btn" onclick="printResult()">Print / Download</button>
+        </div>
+
+        <div id="final-result"></div>
+    </div>
+
+    <div id="history" class="tab-content">
+        <div id="history-list"></div>
+        <button class="calc-btn danger-btn" onclick="clearHistory()">Clear History</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
-

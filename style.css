@@ -1,0 +1,447 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+body{
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+    padding:20px;
+    transition:background 0.3s;
+}
+body.dark{
+    background:linear-gradient(135deg,#1a1a2e,#16213e);
+}
+.container{
+    background:#fff;
+    padding:30px;
+    width:750px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transition:background 0.3s, color 0.3s;
+    margin-top:20px;
+    margin-bottom:40px;
+}
+body.dark .container{
+    background:#0f3460;
+    color:#e0e0e0;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+h2{
+    text-align:center;
+    color:#333;
+    flex:1;
+    font-size:22px;
+}
+body.dark h2{
+    color:#e0e0e0;
+}
+.dark-toggle{
+    background:none;
+    border:2px solid #007bff;
+    color:#007bff;
+    padding:6px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:14px;
+    width:auto;
+    margin:0;
+}
+body.dark .dark-toggle{
+    border-color:#e94560;
+    color:#e94560;
+}
+.dark-toggle:hover{
+    background:#007bff;
+    color:#fff;
+}
+body.dark .dark-toggle:hover{
+    background:#e94560;
+    color:#fff;
+}
+.tab-bar{
+    display:flex;
+    margin-bottom:20px;
+    border-bottom:2px solid #ddd;
+}
+.tab{
+    flex:1;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+    border:none;
+    background:none;
+    font-size:14px;
+    font-weight:bold;
+    color:#666;
+    border-bottom:3px solid transparent;
+    margin-top:0;
+}
+.tab.active{
+    color:#007bff;
+    border-bottom:3px solid #007bff;
+}
+body.dark .tab{
+    color:#aaa;
+}
+body.dark .tab.active{
+    color:#e94560;
+    border-bottom:3px solid #e94560;
+}
+.tab-content{
+    display:none;
+}
+.tab-content.active{
+    display:block;
+}
+.section-title{
+    font-size:16px;
+    font-weight:bold;
+    color:#007bff;
+    border-bottom:2px solid #007bff;
+    padding-bottom:6px;
+    margin:20px 0 15px;
+}
+body.dark .section-title{
+    color:#e94560;
+    border-bottom-color:#e94560;
+}
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    color:#555;
+    margin-bottom:4px;
+}
+body.dark .field label{
+    color:#aaa;
+}
+.field input, .field select{
+    width:100%;
+    padding:8px 10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+body.dark .field input, body.dark .field select{
+    background:#1a1a2e;
+    color:#e0e0e0;
+    border-color:#444;
+}
+.table-wrapper{
+    overflow-x:auto;
+    margin-bottom:10px;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+}
+thead th{
+    background:#007bff;
+    color:#fff;
+    padding:10px 8px;
+    text-align:center;
+    font-size:13px;
+}
+body.dark thead th{
+    background:#e94560;
+}
+tbody td{
+    padding:6px 4px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+body.dark tbody td{
+    border-bottom-color:#333;
+}
+tbody tr:nth-child(even){
+    background:#f8f9fa;
+}
+body.dark tbody tr:nth-child(even){
+    background:#1a1a2e;
+}
+tbody input{
+    width:100%;
+    padding:6px;
+    border:1px solid #ddd;
+    border-radius:4px;
+    font-size:13px;
+    text-align:center;
+}
+body.dark tbody input{
+    background:#16213e;
+    color:#e0e0e0;
+    border-color:#444;
+}
+.grade-display{
+    font-weight:bold;
+    font-size:13px;
+    padding:4px 8px;
+    border-radius:4px;
+    display:inline-block;
+}
+.grade-o{background:#28a745;color:#fff;}
+.grade-a{background:#17a2b8;color:#fff;}
+.grade-b{background:#ffc107;color:#333;}
+.grade-c{background:#fd7e14;color:#fff;}
+.grade-f{background:#dc3545;color:#fff;}
+.btn-del{
+    background:#dc3545;
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    padding:4px 10px;
+    cursor:pointer;
+    font-size:12px;
+}
+.btn-del:hover{
+    background:#a71d2a;
+}
+.add-btn{
+    background:#28a745!important;
+    margin-bottom:10px;
+}
+.add-btn:hover{
+    background:#1e7e34!important;
+}
+button.calc-btn{
+    width:100%;
+    padding:12px;
+    background:#007bff;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+    margin-top:8px;
+}
+button.calc-btn:hover{
+    background:#0056b3;
+}
+body.dark button.calc-btn{
+    background:#e94560;
+}
+body.dark button.calc-btn:hover{
+    background:#c81e45;
+}
+.save-btn{
+    background:#28a745!important;
+}
+.save-btn:hover{
+    background:#1e7e34!important;
+}
+.print-btn{
+    background:#6f42c1!important;
+}
+.print-btn:hover{
+    background:#5a32a3!important;
+}
+.danger-btn{
+    background:#dc3545!important;
+}
+.danger-btn:hover{
+    background:#a71d2a!important;
+}
+.btn-row{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+.btn-row button{
+    flex:1;
+}
+.result-section{
+    margin-top:15px;
+}
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
+body.dark .info-row{
+    border-bottom-color:#333;
+}
+.info-label{
+    color:#666;
+    font-size:14px;
+}
+body.dark .info-label{
+    color:#aaa;
+}
+.info-value{
+    font-weight:bold;
+    font-size:14px;
+}
+.percentage{
+    color:#007bff;
+}
+.grade{
+    color:#e94560;
+    font-size:16px;
+}
+.pass-tag{
+    color:#28a745;
+    font-weight:bold;
+}
+.fail-tag{
+    color:#dc3545;
+    font-weight:bold;
+}
+.saved-sem-card{
+    background:#f0f8ff;
+    border-radius:8px;
+    padding:12px;
+    margin-bottom:10px;
+    border-left:4px solid #007bff;
+}
+body.dark .saved-sem-card{
+    background:#1a1a2e;
+}
+.saved-sem-card .sem-title{
+    font-weight:bold;
+    color:#007bff;
+    margin-bottom:6px;
+}
+body.dark .saved-sem-card .sem-title{
+    color:#e94560;
+}
+.saved-sem-card .sem-subjects{
+    font-size:12px;
+    color:#666;
+}
+body.dark .saved-sem-card .sem-subjects{
+    color:#aaa;
+}
+.final-box{
+    background:linear-gradient(135deg,#007bff,#00f2fe);
+    color:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-top:15px;
+    text-align:center;
+}
+body.dark .final-box{
+    background:linear-gradient(135deg,#e94560,#c81e45);
+}
+.final-box h3{
+    margin-bottom:10px;
+    font-size:18px;
+}
+.final-box .cgpa-big{
+    font-size:42px;
+    font-weight:bold;
+}
+.final-box .details{
+    font-size:14px;
+    margin-top:8px;
+    opacity:0.9;
+}
+.final-box .student-print{
+    font-size:13px;
+    margin-bottom:10px;
+    opacity:0.85;
+    text-align:left;
+}
+.history-card{
+    background:#f8f9fa;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:12px;
+    border-left:4px solid #007bff;
+}
+body.dark .history-card{
+    background:#1a1a2e;
+}
+.history-card.has-fail{
+    border-left-color:#dc3545;
+}
+.history-date{
+    font-size:12px;
+    color:#999;
+    margin-bottom:6px;
+}
+.history-student{
+    font-size:13px;
+    color:#555;
+    margin-bottom:4px;
+}
+body.dark .history-student{
+    color:#aaa;
+}
+.history-cgpa{
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+}
+body.dark .history-cgpa{
+    color:#e0e0e0;
+}
+.history-grade{
+    display:inline-block;
+    padding:2px 10px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:bold;
+    color:#fff;
+    margin-top:5px;
+}
+.grade-pass{background:#28a745;}
+.grade-fail{background:#dc3545;}
+.history-semesters{
+    margin-top:10px;
+    font-size:13px;
+    color:#666;
+}
+body.dark .history-semesters{
+    color:#aaa;
+}
+.history-semesters .fail-item{
+    color:#dc3545;
+    font-weight:bold;
+}
+.no-history{
+    text-align:center;
+    color:#999;
+    padding:40px 0;
+    font-size:14px;
+}
+@media print{
+    body{
+        background:#fff!important;
+        padding:0;
+    }
+    .container{
+        box-shadow:none;
+        width:100%;
+        margin:0;
+    }
+    .dark-toggle, .tab-bar, .add-btn, .btn-row, .danger-btn, .no-print{
+        display:none!important;
+    }
+    .tab-content{
+        display:block!important;
+    }
+    #history{
+        display:none!important;
+    }
+    .final-box{
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+}
